@@ -20,9 +20,10 @@ init:
 
 # ==============================================================================
 # Upgrade dependencies
+# Requires npm-check-updates installed globally:
+# npm i -g npm-check-updates
 
 upgrade:
-	npm i -g npm-check-updates
 	cd web || exit; ncu -u; npm i --no-audit --no-fund
 	cd services || exit; go get -u all; cd ..; make tidy
 .PHONY: upgrade
@@ -62,6 +63,8 @@ compose-down:
 
 # ==============================================================================
 # Linting
+# Requires golangci-lint and staticcheck installed globally: 
+# go get -u github.com/golangci/golangci-lint/cmd/golangci-lint github.com/dominikh/go-tools/cmd/staticcheck
 
 lint: tidy
 	cd services || exit; golangci-lint run
