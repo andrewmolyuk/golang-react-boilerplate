@@ -83,7 +83,7 @@ export const Header = () => {
           <Group justify="center" grow pb="xl" px="md">
             <Button
               onClick={() => {
-                location.href = '/login';
+                location.href = '/auth';
               }}
             >
               Log in
