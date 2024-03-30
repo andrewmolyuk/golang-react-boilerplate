@@ -23,10 +23,8 @@ init:
 
 upgrade:
 	npm i -g npm-check-updates
-	cd web || exit; ncu -u
-	cd services || exit; go get -u
-	cd services || exit; go mod tidy
-	cd services || exit; go mod vendor
+	cd web || exit; ncu -u; npm i
+	cd services || exit; go get -u all; cd ..; make tidy
 .PHONY: upgrade
 
 # ==============================================================================
