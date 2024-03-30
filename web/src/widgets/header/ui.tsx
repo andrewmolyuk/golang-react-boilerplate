@@ -77,30 +77,16 @@ export const Header = () => {
           <a href="/" className={classes.link}>
             Home
           </a>
-          <a href="/blog" className={classes.link}>
-            Blog
-          </a>
-          <a href="/stats" className={classes.link}>
-            Stats
-          </a>
 
           <Divider my="sm" />
 
           <Group justify="center" grow pb="xl" px="md">
             <Button
-              variant="default"
               onClick={() => {
                 location.href = '/login';
               }}
             >
               Log in
-            </Button>
-            <Button
-              onClick={() => {
-                location.href = '/signup';
-              }}
-            >
-              Sign up
             </Button>
           </Group>
         </ScrollArea>
