@@ -23,7 +23,7 @@ init:
 
 upgrade:
 	npm i -g npm-check-updates
-	cd web || exit; ncu -u; npm i
+	cd web || exit; ncu -u; npm i --no-audit --no-fund
 	cd services || exit; go get -u all; cd ..; make tidy
 .PHONY: upgrade
 
