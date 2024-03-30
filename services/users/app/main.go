@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"runtime"
 
-	"pinarik-services/pkg/logger"
-	"pinarik-services/pkg/version"
+	"boilerplate-services/pkg/logger"
+	"boilerplate-services/pkg/version"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-module pinarik-services
+module boilerplate-services
 
 go 1.21.5
 

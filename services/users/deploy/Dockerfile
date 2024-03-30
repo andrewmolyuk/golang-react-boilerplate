@@ -11,7 +11,7 @@ COPY . .
 
 RUN go mod download all
 
-RUN go build -ldflags "-s -w -X pinarik-services/pkg/version.BuildDate=$BUILD_DATE -X pinarik-services/pkg/version.BuildRef=$BUILD_REF -X pinarik-services/pkg/version.BuildVersion=$BUILD_VERSION" -o ./users-app ./users/app/main.go
+RUN go build -ldflags "-s -w -X boilerplate-services/pkg/version.BuildDate=$BUILD_DATE -X boilerplate-services/pkg/version.BuildRef=$BUILD_REF -X boilerplate-services/pkg/version.BuildVersion=$BUILD_VERSION" -o ./users-app ./users/app/main.go
 
 FROM scratch
 ARG BUILD_DATE
@@ -27,7 +27,7 @@ EXPOSE 8080
 LABEL org.opencontainers.image.revision="${BUILD_REF}" \
     org.opencontainers.image.created="${BUILD_DATE}" \
     org.opencontainers.image.version="${BUILD_VERSION}" \
-    org.opencontainers.image.title="pinarik-users" \
+    org.opencontainers.image.title="boilerplate-users" \
     org.opencontainers.image.authors="Andrew Molyuk <andrew@molyuk.com>" \
-    org.opencontainers.image.source="https://github.com/andrewmolyuk/pinarik/services/users" \
+    org.opencontainers.image.source="https://github.com/andrewmolyuk/golang-react-boilerplate/services/users" \
     org.opencontainers.image.vendor="Andrew Molyuk"
