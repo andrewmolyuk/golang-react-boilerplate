@@ -30,10 +30,29 @@ The frontend of this project is built using React with Vite and SWC. Vite is use
 
 To get started with this project, follow the steps below:
 
-1. Clone the repository: `git clone https://github.com/andrewmolyuk/golang-react-boilerplate`
-2. Navigate to the project directory: `cd golang-react-boilerplate`
-3. Initialize the project and install dependencies: `make init`
-4. Start the development server: `make dev`
+1. Clone the repository:
+
+```sh
+git clone https://github.com/andrewmolyuk/golang-react-boilerplate
+```
+
+2. Navigate to the project directory:
+
+```sh
+cd golang-react-boilerplate
+```
+
+3. Initialize the project and install dependencies:
+
+```sh
+make init
+```
+
+4. Start the development server:
+
+```sh
+make dev
+```
 
 ## Commands
 
@@ -59,7 +78,7 @@ This command is used to run all dependancies in all projects.
 
 ### make build
 
-This command is used to build the project for production.
+This command is used to build the project for production. It can be run separatelly for each of the projects : `make build-web` or `make build-users` for example.
 
 ### make compose-up
 
