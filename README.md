@@ -2,6 +2,22 @@
 
 This is a project that combines Go on the backend and React with Vite and SWC on the frontend.
 
+## Prerequisites
+
+This project uses go and node with npm installed on the development computer.
+
+For golang linting and code analyzing it requires `golangci-lint` and `staticcheck` installed globally, so use the following command to install them before:
+
+```sh
+go get -u github.com/golangci/golangci-lint/cmd/golangci-lint github.com/dominikh/go-tools/cmd/staticcheck
+```
+
+In addition, for upgrade dependencies inthe react part of the project the `npm-check-updates` should be installed globally as well:
+
+```sh
+npm i -g npm-check-updates
+```
+
 ## Backend
 
 The backend of this project is built using Go. It provides the necessary APIs and handles the business logic of the application.
