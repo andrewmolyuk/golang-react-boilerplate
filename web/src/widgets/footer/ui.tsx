@@ -6,7 +6,7 @@ export const Footer = () => {
     <footer>
       <Center w={'100%'} bg={'dark'} h={'50'}>
         <Text c={'white'}>
-          2024 &copy; Andrew Molyuk &middot; v{pkg.version}-{pkg.buildRef} &middot; {pkg.buildDate}
+          2024 &copy; Andrew Molyuk &middot; Build {pkg.version}-{pkg.buildRef} &middot; {pkg.buildDate}
         </Text>
       </Center>
     </footer>

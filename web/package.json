@@ -2,8 +2,8 @@
   "name": "boilerplate-web",
   "private": true,
   "version": "1.2.3",
-  "buildRef": "xxx",
-  "buildDate": "yyy",
+  "buildRef": "47aa17f",
+  "buildDate": "2024-03-30T17:30:30Z",
   "type": "module",
   "scripts": {
     "dev": "vite",
