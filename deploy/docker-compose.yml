@@ -1,0 +1,42 @@
+version: '3'
+name: boilerplate
+services:
+  web:
+    image: boilerplate-web:latest
+    ports:
+      - 80:80
+    restart: unless-stopped
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
+
+  users:
+    image: boilerplate-users:latest
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    restart: unless-stopped
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
+    volumes:
+      - mongodb_data:/data/db
+      - mongodb_config:/data/configdb
+
+volumes:
+  mongodb_data:
+  mongodb_config:
