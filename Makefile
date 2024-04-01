@@ -58,13 +58,22 @@ build-users:
 
 # ==============================================================================
 # Containers
-compose-up:
+
+compose-up: compose-down-mongo
 	docker compose -f ./deploy/docker-compose.yml up
 .PHONY: compose-up
 
 compose-down:
 	docker compose -f ./deploy/docker-compose.yml down
 .PHONY: compose-down
+
+compose-up-mongo: compose-down
+	docker compose -f ./deploy/docker-compose.yml up mongo
+.PHONY: compose-down-db
+
+compose-down-mongo:
+	docker compose -f ./deploy/docker-compose.yml down mongo
+.PHONY: compose-down-db
 
 # ==============================================================================
 # Linting
@@ -80,14 +89,14 @@ lint: tidy
 # ==============================================================================
 # Development
 
-dev: 
-	make -j 2 dev-web dev-users
+dev:
+	make -j 2 dev-web dev-users 
 .PHONY: dev
 
 dev-web:
 	cd web || exit; npm run dev
 .PHONY: dev-web
 
-dev-users:
+dev-users: compose-up-mongo
 	cd services || exit; go run ./users/app/main.go
 .PHONY: dev-users
