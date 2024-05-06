@@ -2,11 +2,14 @@ SHELL := /bin/bash
 
 # ==============================================================================
 # Default target
+
 all: build
 .PHONY: all
 
 # ==============================================================================
 # Variables
+
+NCU_IGNORE_PACKAGE := "eslint"
 
 BUILD_REF := "development"
 BUILD_DATE := "$(shell date -u +"%Y-%m-%dT%H:%M:%SZ")"
@@ -25,11 +28,10 @@ init:
 
 # ==============================================================================
 # Upgrade dependencies
-# Requires npm-check-updates installed globally:
-# npm i -g npm-check-updates
 
 upgrade:
-	cd web || exit; ncu -u; npm i --no-audit --no-fund
+	npm -g ls npm-check-updates | grep -c npm-check-updates || npm install -g npm-check-updates 
+	cd web || exit; ncu -u -x $(NCU_IGNORE_PACKAGE); npm i --no-audit --no-fund
 	cd services || exit; go get -u all; cd ..; make tidy
 .PHONY: upgrade
 
@@ -90,13 +92,13 @@ lint: tidy
 # Development
 
 dev:
-	make -j 2 dev-web dev-users 
+	make -j 3 dev-web compose-up-mongo dev-users 
 .PHONY: dev
 
 dev-web:
 	cd web || exit; npm run dev
 .PHONY: dev-web
 
-dev-users: compose-up-mongo
+dev-users:
 	cd services || exit; go run ./users/app/main.go
 .PHONY: dev-users
